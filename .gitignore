@@ -1,8 +1,8 @@
-/artifacts
-organizations/fabric-ca/ordererOrg/*
-organizations/fabric-ca/org1/*
-organizations/ordererOrganizations/*
-organizations/peerOrganizations/*
-system-genesis-block/*
+network/artifacts
+network/organizations/fabric-ca/ordererOrg/*
+network/organizations/fabric-ca/org1/*
+network/organizations/ordererOrganizations
+network/organizations/peerOrganizations
+network/system-genesis-block/*
 chaincode/nodejs/starter/node_modules
 chaincode/nodejs/starter/package-lock.json

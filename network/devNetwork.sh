@@ -1,6 +1,8 @@
 
 # Export some environment vars
-export PATH=${PWD}/../fabric-samples/bin:$PATH
+cd network
+
+export PATH=${PWD}/../../fabric-samples/bin:$PATH
 export FABRIC_CFG_PATH=${PWD}/configtx
 
 # set mode: up or down
