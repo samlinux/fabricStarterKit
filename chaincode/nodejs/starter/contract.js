@@ -45,7 +45,7 @@ class Starter extends Contract {
       
       // create the model and get the key
       this.createModel(ctx);
-  
+
       try {
         // store the key
         const assetBuffer = Buffer.from(JSON.stringify(this.Model.data));
@@ -88,7 +88,7 @@ class Starter extends Contract {
     async delete(ctx, key){
       const exists = await this.assetExists(ctx, key);
       if (!exists) {
-          throw new Error(`The asset ${ikeyd} does not exist`);
+          throw new Error(`The asset ${key} does not exist`);
       }
       return ctx.stub.deleteState(key);
     }
@@ -102,7 +102,7 @@ class Starter extends Contract {
       // get passed parameters
       const ret = ctx.stub.getFunctionAndParameters();
 
-      // convert passed parameter to JSON
+      // convert passed parameter to JSON     
       const data = JSON.parse(ret.params[0]);
 
       // start composing a data and key model
@@ -143,11 +143,24 @@ class Starter extends Contract {
      * @returns [{*}] 
      */
     async getAllAssets(ctx) {
+      const allResults = [];
       // this is a range query with empty string for startKey and endKey 
       // does an open-ended query of all assets in the chaincode namespace
       const iterator = await ctx.stub.getStateByRange('', '');
-      const results = await this.getAllResults(iterator);
-      return JSON.stringify(results);
+      let result = await iterator.next();
+      while (!result.done) {
+          const strValue = Buffer.from(result.value.value.toString()).toString('utf8');
+          let record;
+          try {
+              record = JSON.parse(strValue);
+          } catch (err) {
+              console.log(err);
+              record = strValue;
+          }
+          allResults.push({ Key: result.value.key, Record: record });
+          result = await iterator.next();
+      }
+      return JSON.stringify(allResults);
     }
 
     /**
@@ -175,7 +188,7 @@ class Starter extends Contract {
           loop = false;
           return allResults;
         }
-    }
+      }
     }
 
     /**

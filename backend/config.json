@@ -1,0 +1,7 @@
+{
+  "channel": "ch1",
+  "cc":"mycc",
+  "userName": "User1@org1.example.com",
+  "ccpPath": "./ccp.json",
+  "walletPath": "./wallet"
+}

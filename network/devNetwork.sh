@@ -211,8 +211,8 @@ function networkUp() {
   if [ $? -ne 0 ]; then
     infoln "Unable to start network"
   fi
-  . org1.sh
-  setGlobals
+  source org1.sh
+  
   sleep 2
   createAndJoinChannel
   sleep 2

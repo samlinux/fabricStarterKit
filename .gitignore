@@ -6,3 +6,6 @@ network/organizations/peerOrganizations
 network/system-genesis-block/*
 chaincode/nodejs/starter/node_modules
 chaincode/nodejs/starter/package-lock.json
+backend/node_modules
+backend/package-lock.json
+backend/wallet
