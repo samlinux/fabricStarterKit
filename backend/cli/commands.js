@@ -6,15 +6,21 @@ const api = supertest('localhost:3000/api');
 const util = require('util');
 const invokeTimeout = 3000;
 
-describe("Hyperledger fabricStarterKitAPI tests", function() {
+describe("Hyperledger fabricStarterKitAPI some tests", function() {
 
+  /**
+   * check if api is running
+   */
   it("checks if api is running", async function() {
-    this.skip();
+    //this.skip();
     let result = await api.get('/')
     console.log(result.body)
   }) 
   
-  it("create or update an assets", async function() {
+  /**
+   * create or update an asset
+   */
+  it("setData", async function() {
     //this.skip();
     this.timeout(invokeTimeout);
     let payload = {
@@ -27,22 +33,31 @@ describe("Hyperledger fabricStarterKitAPI tests", function() {
     console.log(result.body)
   })
 
-  it("query a key", async function() {
-    this.skip();
+  /**
+   * get details of an asset
+   */
+  it("getData", async function() {
+    //this.skip();
     let key = 'a3';
     let result = await api.get('/getData/'+key)
     console.log(result.body)
   })
 
-  it("delete an asset", async function() {
-    this.skip();
+  /**
+   * delete an asset
+   */
+  it("delAsset", async function() {
+    //this.skip();
     this.timeout(invokeTimeout);
     let key = 'a3';
     let result = await api.get('/delAsset/'+key)
     console.log(result.body)
   })
 
-  it("get all assets", async function() {
+  /**
+   * get a list of all available asset
+   */
+  it("getAllAssets", async function() {
     //this.skip();
     let result = await api.get('/getAllAssets')
     console.log(util.inspect(result.body, { showHidden: false, depth: null }))
