@@ -1,7 +1,12 @@
 ## Running the devNetwork
 
-
 ```bash
+# switch into the cloned folder
+cd fabricStarterKit
+
+# start a new tmux terminal
+tmux new -s dev
+
 # --------------------
 # in terminal 1
 # --------------------
@@ -28,13 +33,15 @@ CORE_CHAINCODE_LOGLEVEL=debug CORE_PEER_TLS_ENABLED=false CORE_CHAINCODE_ID_NAME
 ## Enable scrolling
 CTRL + b :set -g mouse on
 
-# set environment vars
-source network/org1.sh
 
-# test the chaincode
+# change some environment variables
+export FABRIC_CFG_PATH=${PWD}/../fabric-samples/config
+
+# how is using connecting to the network
+export CORE_PEER_MSPCONFIGPATH=/root/fabric/fabricStarterKit/network/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
 
 # create or update an asset
-CORE_PEER_ADDRESS=127.0.0.1:7051 peer chaincode invoke -o 127.0.0.1:7050 -C ch1 -n mycc -c '{"Args":["starter:set","{\"no\":\"a1\", \"desc\":\"Product number 1\",\"amount\":10, \"price\":\"500\", \"type\":\"brick\"}"]}'
+CORE_PEER_ADDRESS=127.0.0.1:7051 peer chaincode invoke -o 127.0.0.1:7050 -C ch1 -n mycc -c '{"Args":["starter:set","{\"no\":\"a1\", \"desc\":\"Product number 1\",\"amount\":10, \"price\":\"500\"}"]}'
 
 # query the world state of an asset
 CORE_PEER_ADDRESS=127.0.0.1:7051 peer chaincode query -o 127.0.0.1:7050 -C ch1 -n mycc -c '{"Args":["starter:get","a1"]}' | jq .
@@ -46,8 +53,7 @@ CORE_PEER_ADDRESS=127.0.0.1:7051 peer chaincode query -o 127.0.0.1:7050 -C ch1 -
 CORE_PEER_ADDRESS=127.0.0.1:7051 peer chaincode query -o 127.0.0.1:7050 -C ch1 -n mycc -c '{"Args":["starter:getAllAssets"]}' | jq .
 
 # delete an asset
-CORE_PEER_ADDRESS=127.0.0.1:7051 peer chaincode invoke -o 127.0.0.1:7050 -C ch1 -n mycc -c '{"Args":["starter:delete","a2"]}'
-
+CORE_PEER_ADDRESS=127.0.0.1:7051 peer chaincode invoke -o 127.0.0.1:7050 -C ch1 -n mycc -c '{"Args":["starter:delete","a1"]}'
 
 ```
 

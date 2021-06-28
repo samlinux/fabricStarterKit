@@ -1,5 +1,5 @@
 {
-  "name": "restApi",
+  "name": "restapi",
   "version": "1.0.0",
   "description": "demo implementation for the fabric-network",
   "main": "index.js",
@@ -12,12 +12,12 @@
     "lodash": "^4.17.21"
   },
   "scripts": {
-    "test": ""
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "fabric-chaincode-node start"
   },
   "author": "rbole",
   "license": "ISC",
   "devDependencies": {
-    "mocha": "^9.0.1",
     "supertest": "^6.1.3"
   }
 }
