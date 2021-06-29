@@ -8,21 +8,6 @@ This guide consists of the following parts.
 - [Part 3 - Set up and run an client application](backend/readme.md)
 - Set up a react frontend application
 
-Starting from a base folder, in my case **/root**, the following folder structure results.
-
-Installation structure.
-```bash
-pwd
-# > /root
-
-# create base folder
-mkdir fabric
-
-# clone the starter kit
-git clone https://github.com/samlinux/fabricStarterKit.git
-
-```
-
 ## Part 1 - Preparation
 These steps describes a HLF 2.2.x installation on  e.g. a DigitalOcean Droplet. 
 
@@ -115,6 +100,30 @@ apt-get install -y nodejs
 # check the ready Node.js version
 node -v
 # > v14.17.1
+```
+
+## Create Basefolder
+Starting from a base folder, in my case **/root**, we should end up with the following folder structure.
+
+```bash
+root@jsday:~/fabric 
+tree -L 1
+.
+├── fabric-samples
+└── fabricStarterKit
+```
+
+Create base folder and clone the starter kit.
+```bash
+pwd
+# > /root
+
+# create base folder
+mkdir fabric
+
+# clone the starter kit
+git clone https://github.com/samlinux/fabricStarterKit.git
+
 ```
 
 ## Install Samples, Binaries and Docker Images

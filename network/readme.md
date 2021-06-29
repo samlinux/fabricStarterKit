@@ -82,4 +82,4 @@ Alternatively, you can leave the development network and let it run in the backg
 CTRL + b d
 ``` 
 
-[back to the index](../README.md#fabric-Developer-starter-kit)
+[Back to the index](../README.md#fabric-Developer-starter-kit)
