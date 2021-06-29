@@ -8,6 +8,8 @@ This guide consists of the following parts.
 - [Part 3 - Set up and run an client application](backend/readme.md)
 - Set up a react frontend application
 
+![devNetwork-overview](img/devNetwork-overview.png "devNetwork-overview")
+
 ## Part 1 - Preparation
 These steps describes a HLF 2.2.x installation on  e.g. a DigitalOcean Droplet. 
 
