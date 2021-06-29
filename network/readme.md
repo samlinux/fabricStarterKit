@@ -74,7 +74,7 @@ CORE_PEER_ADDRESS=127.0.0.1:7051 peer chaincode invoke -o 127.0.0.1:7050 -C ch1 
 You can stop the development network.
 ```bash
 # in terminal 1
-./devNetwork.sh down
+./network/devNetwork.sh down
 ```
 
 Alternatively, you can leave the development network and let it run in the background to continue your work later.

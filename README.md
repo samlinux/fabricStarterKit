@@ -10,6 +10,9 @@ This guide consists of the following parts.
 
 ![devNetwork-overview](img/devNetwork-overview.png "devNetwork-overview")
 
+The slides from the presentation can be found here.
+
+
 ## Part 1 - Preparation
 These steps describes a HLF 2.2.x installation on  e.g. a DigitalOcean Droplet. 
 
@@ -123,17 +126,17 @@ pwd
 # create base folder
 mkdir fabric
 
+# make sure you are in the fabric base folder
+cd fabric
+
 # clone the starter kit
 git clone https://github.com/samlinux/fabricStarterKit.git
-
 ```
 
 ## Install Samples, Binaries and Docker Images
 Hyperledger Fabric provides a script that will download and install samples and binaries to your system. We can use that.
 
 ```bash
-# make sure you are in the fabric base folder
-cd fabric
 
 # curl -sSL http://bit.ly/2ysbOFE | bash -s -- <fabric_version> <fabric-ca_version> <thirdparty_version>
 
@@ -146,14 +149,15 @@ curl -sSL https://bit.ly/2ysbOFE | bash -s -- 2.2.3 1.5.0
 # check downloaded images
 docker images
 
+# add the fabric bin folder to the path
+echo "export PATH=/root/fabric/fabric-samples/bin:$PATH" >> /$USER/.profile
+
+# reload the .profile file
+source /$USER/.profile
+
 # check the bin cmd
 peer version
 
-# add the fabric bin folder to the path
-echo "export PATH=/root/fabric/fabric-samples/bin:$PATH" >> .profile
-
-# reload the .profile file
-source .profile
 ```
 
 ## Try the installation
