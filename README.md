@@ -252,6 +252,6 @@ When you see the results, you can move on.
 ## Start the fabricStarterKit
 Next try to start the starter kit and test with the CLI commands.
 
-[next](network/readme.md)
+[Next](network/readme.md)
 
 
