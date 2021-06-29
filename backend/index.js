@@ -36,6 +36,9 @@
   // activate cors for local - > remote development
   app.use(cors());
 
+  // include the frontend application
+  app.use(express.static('public'))
+
   // for parsing application/x-www-form-urlencoded 
   app.use(express.urlencoded({ extended: true }));
 
