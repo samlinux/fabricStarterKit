@@ -4,6 +4,10 @@ The client application is based on Node.js. We use an expressjs REST API to inte
 ## Install Node.js requirements
 First install the required node_modules.
 ```bash
+# make sure you are into the backend folder
+pwd
+# > /root/fabric/fabricStarterKit/backen
+
 # have a look into the package.json file if you are interested
 npm install
 ```
@@ -24,7 +28,7 @@ tree wallet
 wallet
 └── User1@org1.example.com.id
 
-# feel free to inspect that file with
+# feel free to inspect that file
 cat wallet/User1@org1.example.com.id | jq .
 ```
 

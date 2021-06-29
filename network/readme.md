@@ -19,7 +19,7 @@ cd fabricStarterKit
 # start a new tmux terminal
 tmux new -s dev
 
-## Enable scrolling
+# enable scrolling
 CTRL + b :set -g mouse on
 
 # --------------------
@@ -34,7 +34,7 @@ CTRL + b :set -g mouse on
 # in terminal 2
 # --------------------
 
-# Start the chaincode in Node.js
+# start the chaincode in Node.js
 cd chaincode/nodejs/starter
 
 # install node_modules (for the first time)
@@ -51,7 +51,7 @@ cd $HOME/fabric/fabricStarterKit
 # set proper environment variables
 source ./network/startup.sh
 
-## Test the chaincode with  CLI commands during the chaincode development
+## test the chaincode with  CLI commands during the chaincode development
 # create or update an asset
 CORE_PEER_ADDRESS=127.0.0.1:7051 peer chaincode invoke -o 127.0.0.1:7050 -C ch1 -n mycc -c '{"Args":["starter:set","{\"no\":\"a1\", \"desc\":\"Product number 1\",\"amount\":10, \"price\":\"500\"}"]}'
 
