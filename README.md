@@ -23,7 +23,7 @@ Digital Ocean Droplet, 1 CPU, 2 GB, 50 GB SSD
 OS, Ubuntu 20.04 (LTS) x64
 
 ## Access via ssh
-ssh root@ssh
+ssh root@ip-of-the-host
 
 ## Base Installation
 The following steps are required to do a basic installation of the Droplet.
