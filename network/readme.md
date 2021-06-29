@@ -46,6 +46,8 @@ CORE_CHAINCODE_LOGLEVEL=debug CORE_PEER_TLS_ENABLED=false CORE_CHAINCODE_ID_NAME
 # --------------------
 # in terminal 3
 # --------------------
+cd $HOME/fabric/fabricStarterKit
+
 # set proper environment variables
 source ./network/startup.sh
 
