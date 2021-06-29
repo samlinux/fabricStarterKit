@@ -46,12 +46,8 @@ CORE_CHAINCODE_LOGLEVEL=debug CORE_PEER_TLS_ENABLED=false CORE_CHAINCODE_ID_NAME
 # --------------------
 # in terminal 3
 # --------------------
-
-# change some environment variables we need, this is the path to the fabric config yaml files based on the fabric-samples
-export FABRIC_CFG_PATH=${PWD}/../fabric-samples/config
-
-# how is connecting to the network
-export CORE_PEER_MSPCONFIGPATH=/root/fabric/fabricStarterKit/network/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
+# set proper environment variables
+source ./network/startup.sh
 
 ## Test the chaincode with  CLI commands during the chaincode development
 # create or update an asset
