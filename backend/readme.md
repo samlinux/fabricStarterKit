@@ -1,9 +1,10 @@
 # Part 3 - Set up and run an client application
 The client application is based on Node.js. We use an expressjs REST API to interact with the ledger and provide a public react frontend.
 
-## Install node_modules
+## Install Node.js requirements
 First install the required node_modules.
 ```bash
+# have a look into the package.json file if you are interested
 npm install
 ```
 
@@ -35,7 +36,7 @@ npm install nodemon mocha -g
 ```
 
 ## Start REST API
-We need further tmux panels.
+We need another tmux panel.
 
 >**Create a new panel horizontally**<br> 
 CTRL + b " (double-quots)
@@ -46,7 +47,7 @@ nodemon start index.js
 ```
 
 ## Test with cli commands
-We need further tmux panels.
+We need another tmux panel.
 >**Create a new panel horizontally**<br> 
 CTRL + b " (double-quots)
 

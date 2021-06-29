@@ -1,6 +1,7 @@
 ## Part 2 - Using the devNetwork
+After we've successfully installed step 1, we can try the starter kit.
 
-The following folder structure is given.
+We assume the following folder structure, which should already exist.
 ```bash
 root@jsday:~/fabric 
 
@@ -9,7 +10,7 @@ tree -L 1
 ├── fabric-samples
 └── fabricStarterKit
 ```
-Start the development network.
+Let's start the development network.
 
 ```bash
 # switch into the cloned folder
@@ -81,5 +82,7 @@ Alternatively, you can leave the development network and let it run in the backg
 ```bash
 CTRL + b d
 ``` 
+
+Now we are ready and switch to the client application.
 
 [Back](../README.md#fabric-Developer-starter-kit) | [Next](../backend/readme.md)
