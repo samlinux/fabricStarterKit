@@ -1,26 +1,30 @@
 # Fabric Developer Starter Kit
-A starter kid for node.js fabric developers
+This is a starter kit for Hyperledger Fabric Node.js Developers.
+
+This guide consists of the following parts.
+
+- [Part 1 - Preparation](#OS-preparation)
+- [Part 2 - Using the development network](network/readme.md)
+- [Part 3 - Set up and run an client application](backend/readme.md)
+- Set up a react frontend application
+
+Starting from a base folder, in my case **/root**, the following folder structure results.
 
 Installation structure.
 ```bash
+pwd
+# > /root
+
+# create base folder
 mkdir fabric
+
+# clone the starter kit
 git clone https://github.com/samlinux/fabricStarterKit.git
 
-cd fabricStarterKit
-
 ```
 
-
-```bash
-root@jsday:~ tree -L 2
-.
-├── fabric
-    ├── fabric-samples
-    └── fabricStarterKit
-```
-
-## Preparations on a Ubuntu 20.04 LTS
-These steps describes a HLF 2.2.x installation on a DigitalOcean Droplet. This is the preferred setup.
+## Part 1 - Preparation
+These steps describes a HLF 2.2.x installation on  e.g. a DigitalOcean Droplet. 
 
 ## Droplet 
 Digital Ocean Droplet, 1 CPU, 2 GB, 50 GB SSD  
@@ -29,13 +33,13 @@ OS, Ubuntu 20.04 (LTS) x64
 ## Access via ssh
 ssh root@ssh root@xx
 
-## Perparations
-The following steps are required to do a basic preparation of the Droplet.
+## Base Installation
+The following steps are required to do a basic installation of the Droplet.
 ```bash
 # update the OS
 apt update && apt upgrade
 
-# install some useful helpers
+# install some useful/required helpers
 apt install tree jq gcc make g++
 
 # it's always good the use the right time
@@ -64,7 +68,6 @@ apt install \
 # add Docker’s official GPG key
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
-
 # set up the stable repository
 add-apt-repository \
   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
@@ -81,8 +84,7 @@ docker --version
 ```
 
 ## Install Docker-Compose
-
-Reference: https://docs.docker.com/compose/install/
+The following steps are required to install docker-compose on the Droplet. Reference: https://docs.docker.com/compose/install/
 
 ```bash
 # install docker-compose
@@ -97,26 +99,29 @@ docker-compose --version
 ```
 
 ## Install node.js
+The following steps are required to install Node.js on the Droplet.
 
 ```bash
 # add PPA from NodeSource
-# supportted versions node: '^10.15.3 || ^12.13.1 || ^14.13.1', npm: '^6.4.1' 
+# supported versions of Node.js: '^10.15.3 || ^12.13.1 || ^14.13.1', npm: '^6.4.1' 
 curl -sL https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh
 
 # call the install script
 . nodesource_setup.sh
 
-# install node.js
+# install Node.js
 apt-get install -y nodejs
 
-# check the version
+# check the ready Node.js version
 node -v
 # > v14.17.1
 ```
 
 ## Install Samples, Binaries and Docker Images
+Hyperledger Fabric provides a script that will download and install samples and binaries to your system. We can use that.
 
 ```bash
+# make sure you are in the fabric base folder
 cd fabric
 
 # curl -sSL http://bit.ly/2ysbOFE | bash -s -- <fabric_version> <fabric-ca_version> <thirdparty_version>
@@ -135,17 +140,22 @@ peer version
 
 # add the fabric bin folder to the path
 echo "export PATH=/root/fabric/fabric-samples/bin:$PATH" >> .profile
+
+# reload the .profile file
 source .profile
 ```
 
 ## Try the installation
 The fabric-samples provisions a sample Hyperledger Fabric test-network consisting of two organizations, each maintaining one peer nodes. It also will deploy a single RAFT ordering service by default. 
 
-To test your installationen we can start interacting with the network.
+To test your installationen we can start interacting with the network. Let`s do a short test run.
 
 ```bash
 # switch to the base folder
 cd fabric-samples/test-network
+
+# since there was a change to the docker-compose 1.29 we have to move one file to get the samples working (this should be fixed in upcoming versions)
+mv .env docker/
 
 # print some help
 ./network.sh --help
@@ -159,10 +169,6 @@ cd fabric-samples/test-network
 # show if some containers are running
 docker ps
 docker-compose -f docker/docker-compose-test-net.yaml ps
-
-# since there was a change to the docker-compose 1.29 we have mv one file to get the samples working
-mv .env docker/
-
 ```
 
 ### Interacting with the network
@@ -203,10 +209,10 @@ CTRL + b :set -g mouse on
 ### Test the setup
 
 ```bash
-# execute the env file
+# execute the env file, so we can switch between organizations
 source scripts/envVar.sh
 
-# use Org1
+# use Org1 (1 = Org1, 2 = Org2)
 setGlobals 1
 
 # we need two more variables
@@ -226,17 +232,17 @@ peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.exa
 
 # query a list of assets
 peer chaincode query -C mychannel -n basic -c '{"Args":["GetAllAssets"]}' | jq .
-
 ```
+When you see the results, you can move on.
 
 ## Bring down the network
 ```bash
 ./network.sh down
 ```
 
-
 ## Start the fabricStarterKit
 Next try to start the starter kit and test with the CLI commands.
 
-[Start the fabricStarterKit](./network/readme.md)
+[Part 2 - Using the development network](network/readme.md)
+
 
