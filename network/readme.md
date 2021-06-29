@@ -1,7 +1,7 @@
 ## Part 2 - Using the devNetwork
 After we've successfully installed step 1, we can try the starter kit.
 
-We assume the following folder structure, which should already exist.
+Please assume the following folder structure, which should already exist.
 ```bash
 root@jsday:~/fabric 
 

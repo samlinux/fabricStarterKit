@@ -8,10 +8,10 @@ This guide consists of the following parts.
 - [Part 3 - Set up and run an client application](backend/readme.md)
 - Set up a react frontend application
 
+## Short overview of the starter kit
 ![devNetwork-overview](img/devNetwork-overview.png "devNetwork-overview")
 
-The slides from the presentation can be found here.
-
+The slides from the presentation can be found [here](https://docs.google.com/presentation/d/1Maqwoc0X94_GD73R2wzIeUIunM6_n48T9yGbWeIYUjI/edit?usp=sharing).
 
 ## Part 1 - Preparation
 These steps describes a HLF 2.2.x installation on  e.g. a DigitalOcean Droplet. 
@@ -152,10 +152,10 @@ curl -sSL https://bit.ly/2ysbOFE | bash -s -- 2.2.3 1.5.0
 docker images
 
 # add the fabric bin folder to the path
-echo "export PATH=/root/fabric/fabric-samples/bin:$PATH" >> /$USER/.profile
+echo "export PATH=/root/fabric/fabric-samples/bin:$PATH" >> $HOME/.profile
 
 # reload the .profile file
-source /$USER/.profile
+source $HOME/.profile
 
 # check the bin cmd
 peer version
@@ -188,7 +188,7 @@ docker ps
 docker-compose -f docker/docker-compose-test-net.yaml ps
 ```
 
-### Interacting with the network
+### Some useful tmux commands
 
 Before you start, get familiar with some tmux commands you are going to use.
 
@@ -223,7 +223,7 @@ tmux kill-ses -t mysession
 CTRL + b :set -g mouse on
 
 
-### Test the setup
+### Test the set up
 
 ```bash
 # execute the env file, so we can switch between organizations
