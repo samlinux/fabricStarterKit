@@ -10,6 +10,9 @@
   // We include some requirement.
   const express = require('express');
 
+  // for development reasons we could need cors
+  const cors = require('cors');
+
   // We include our connection modul.
   let connectToContract = require('./connect');
 
@@ -29,6 +32,9 @@
 
   // for parsing application/json
   app.use(express.json());
+
+  // activate cors for local - > remote development
+  app.use(cors());
 
   // for parsing application/x-www-form-urlencoded 
   app.use(express.urlencoded({ extended: true }));

@@ -16,6 +16,8 @@ The slides from the presentation can be found here.
 ## Part 1 - Preparation
 These steps describes a HLF 2.2.x installation on  e.g. a DigitalOcean Droplet. 
 
+>Note: To interact from your windows machine with the droplet use putty.
+
 ## Droplet 
 Digital Ocean Droplet, 1 CPU, 2 GB, 50 GB SSD  
 OS, Ubuntu 20.04 (LTS) x64
