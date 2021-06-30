@@ -151,7 +151,7 @@ class Detail extends React.Component {
                         </div>
                         <div class="form-group">
                             <label for="formGroupPrice">Price</label>
-                            <input type="number" step="1" class="form-control" id="formGroupPrice" placeholder="Price"
+                            <input type="number" step=".01" class="form-control" id="formGroupPrice" placeholder="Price"
                                 value={this.state.data.price} onChange={(e) => this.formValueChanged("price", e)} min="0" required />
                         </div>
                         <div class="detail-buttons">
