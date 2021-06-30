@@ -1,8 +1,41 @@
-<html>
-  <head>
-  <title>frontend</title>
-  </head>
-  <body>
-  <h1>hello frontend</h1>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="FabricStarterKit - Demo" />
+  <link rel="stylesheet" href="./app/styles.css">
+  <title>FabricStarterKit - Demo</title>
+</head>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <!-- Our React component is inside this div. -->
+  <div id="root"></div>
+
+  <!-- Load Bootstrap -->
+  <link href="./lib/bootstrap.min.css" rel="stylesheet">
+  <script src="./lib/bootstrap.bundle.min.js"></script>
+
+  <!-- Load React -->
+  <script src="./lib/react.production.min.js"></script>
+  <script src="./lib/react-dom.production.min.js"></script>
+
+  <!-- Load React-Router -->
+  <script src="./lib/react-router-dom.min.js"></script>
+
+  <!-- Babel ES6 to ES5 Transpiler -->
+  <script src="./lib/babel.min.js"></script>
+
+  <!-- Load our React Components & Global-Vars -->
+  <script type='text/babel' src="./app/SetGlobals.js"></script>
+  <script type='text/babel' src="./app/List.js"></script>
+  <script type='text/babel' src="./app/Detail.js"></script>
+  <script type='text/babel' src="./app/History.js"></script>
+  <script type='text/babel' src="./app/App.js"></script>
+</body>
+
 </html>

@@ -1,0 +1,177 @@
+.navbar {
+    padding: .5rem 1rem;
+}
+
+.app-container {
+    padding: .5rem 1rem;
+}
+
+.hide-element {
+    display: none !important;
+}
+
+.asset-list {
+    position: relative;
+    min-height: 300px;
+}
+.asset-list.asset-list-no-overflow {
+    overflow: hidden;
+}
+.list-table tr th:last-child,
+.list-table tr td:last-child {
+    text-align: right;
+}
+.list-table .list-table-edit-col {
+    width: 180px;
+    min-width: 180px;
+}
+.list-table .list-button {
+    margin-left: 5px;
+    padding: .175rem .35rem;
+    line-height: 1.3;
+    font-size: 0.9em;
+}
+.list-table .list-button:first-child {
+    margin-left: 0;
+}
+.list-table-disabled {
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 45px);
+    top: 45px;
+    left: 0;
+    background: rgba(255, 255, 255, 0.5);
+    z-index: 1;
+}
+
+.asset-detail.asset-detail-no-overflow {
+    overflow: hidden;
+}
+.asset-detail form {
+    min-width: 350px;
+    max-width: 600px;
+}
+.asset-detail form .form-group {
+    margin-top: 12px;
+}
+.asset-detail form .form-group:first-child {
+    margin-top: 0;
+}
+.asset-detail form .detail-buttons {
+    margin-top: 12px;
+}
+.asset-detail form .detail-buttons .btn-secondary {
+    float: right;
+}
+.asset-detail form .detail-buttons .btn-submit {
+    white-space: nowrap;
+}
+.asset-detail form .detail-buttons .btn-submit .btn-submit-spinner {
+    display: inline-block;
+    position: relative;
+    width: 35px;
+}
+
+.history-list .btn-back-to-list {
+    float: right;
+}
+.history-list .list-table-history td {
+    max-width: 46vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 0.9em;
+}
+.history-list .list-table-history .history-transaction {
+    cursor: pointer;
+}
+.history-list .list-table-history .history-transaction:hover,
+.history-list .list-table-history .history-transaction.active {
+    background:rgba(0, 0, 0, .08);
+}
+.history-list .transaction-detail {
+    padding-top: 39px;
+}
+.history-list .transaction-detail .card-header {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.history-list .transaction-detail .tx-detail-table tr td:first-child {
+    padding-right: 12px;
+    font-weight: bold;
+}
+
+/**
+ * default - loading spinner
+ */
+.loader, .loader:after {
+    border-radius: 50%;
+}
+.loader {
+    position: absolute;
+    text-indent: -9999em;
+    border-top: 1em solid rgba(255, 255, 255, 0.2);
+    border-right: 1em solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1em solid rgba(255, 255, 255, 0.2);
+    border-left: 1em solid #ffffff;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-animation: load8 1.1s infinite linear;
+    animation: load8 1.1s infinite linear;
+}
+
+/**
+ * delete - specific loading-spinner
+ */
+.delete-loader, .submit-btn-loader:after {
+    width: 3em;
+    height: 3em;
+}
+.delete-loader {
+    top: 0;
+    left: calc(50% - 1em);
+    font-size: 2em;
+    border-top: 0.7em solid rgba(0, 0, 0, 0.2);
+    border-right: 0.7em solid rgba(0, 0, 0, 0.2);
+    border-bottom: 0.7em solid rgba(0, 0, 0, 0.2);
+    border-left: 0.7em solid rgba(0, 0, 0, 0);
+}
+
+/**
+ * submit-button - specific loading-spinner
+ */
+.submit-btn-loader, .submit-btn-loader:after {
+    width: 1em;
+    height: 1em;
+}
+.submit-btn-loader {
+    top: -17px;
+    right: 0;
+    font-size: 11px;
+}
+
+/**
+ * spinner-animations
+ */
+@-webkit-keyframes load8 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+@keyframes load8 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
