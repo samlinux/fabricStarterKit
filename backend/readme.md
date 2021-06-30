@@ -12,7 +12,7 @@ pwd
 npm install
 ```
 
-## Add an User to the Wallet
+## Add a User to the Wallet
 The client application needs a user to interact with the ledger. We can use **User1@org1.example.com** which was created during the boot process. 
 
 The second step is to add this user to the clients local filesystem wallet. We can do that with the following command.
