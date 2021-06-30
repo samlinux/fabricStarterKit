@@ -57,7 +57,7 @@ CTRL + b " (double-quots)
 
 ```bash
 # call a specific test with mocha
-# possible values ['api','setData','getData','delAsset','getAllAssets']
+# possible values ['api','setData','getData','delAsset','getAllAssets','getHistory']
 
 mocha -g "getAllAssets" cli/commands.js
 ```

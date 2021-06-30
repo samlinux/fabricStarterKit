@@ -62,6 +62,16 @@ describe("Hyperledger fabricStarterKitAPI some tests", function() {
     let result = await api.get('/getAllAssets')
     console.log(util.inspect(result.body, { showHidden: false, depth: null }))
   })
+
+  /**
+   * get the history of an asset
+   */
+   it("getHistory", async function() {
+    //this.skip();
+    let key = 'a1';
+    let result = await api.get('/getHistory/'+key)
+    console.log(util.inspect(result.body, { showHidden: false, depth: null }))
+  })
   
 
 

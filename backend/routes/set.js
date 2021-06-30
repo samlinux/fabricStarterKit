@@ -9,6 +9,7 @@ const _ = require('lodash');
   module.exports = async function (req, contract) {
    
     // Get the keys and value from the POST request.
+    console.log(_.get(req,'body',false))
     let no = _.get(req,'body.no',false);
     if(!no){
       return {r:'Failed to submit transaction: no valid set'};
