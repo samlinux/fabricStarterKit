@@ -62,5 +62,5 @@ CTRL + b " (double-quots)
 mocha -g "getAllAssets" cli/commands.js
 ```
 
-[Index](../README.md#fabric-Developer-starter-kit) | [Back](../network/readme.md) | [Next](./readmeFrontend.md)
+[Index](../README.md#fabric-Developer-starter-kit) | [Previous](../network/readme.md) | [Next](./readmeFrontend.md)
 
