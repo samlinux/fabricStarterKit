@@ -132,6 +132,7 @@ class Starter extends Contract {
      */
     async getHistory(ctx, key){
       // get the asset from chaincode state
+      console.log(key)
       const promiseOfIterator = await ctx.stub.getHistoryForKey(key);
       const results = await this.getAllResults(promiseOfIterator);
       return JSON.stringify(results);
@@ -179,10 +180,13 @@ class Starter extends Contract {
         } else if (!res.value) {
           throw new Error('no value and not done (internal error?)');
         }
-        const theVal = res.value.value.toString('utf8');  
-        const jsonVal = JSON.parse(theVal);
-        jsonVal.txId =res.value.txId;
-        allResults.push(jsonVal);
+       
+        if(!res.value.isDelete){
+          const theVal = res.value.value.toString('utf8');  
+          const jsonVal = JSON.parse(theVal);
+          jsonVal.txId =res.value.txId;
+          allResults.push(jsonVal);
+        } 
         if (res.done) {
           await iterator.close();
           loop = false;
