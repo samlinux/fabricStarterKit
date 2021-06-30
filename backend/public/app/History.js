@@ -1,4 +1,12 @@
+/**
+ * Asset history component (shows past transactions of an asset)
+ */
 class History extends React.Component {
+
+    /**
+     * History Constructor
+     * @param {*} props
+     */
     constructor(props) {
         super(props);
         // look for asset-key in route-params
@@ -19,6 +27,9 @@ class History extends React.Component {
         };
     }
 
+    /**
+     * Fetch asset history data (if asset-key was given)
+     */
     fetchListData() {
         const _this = this;
         if (!this.state.historyKey) return;
@@ -55,6 +66,10 @@ class History extends React.Component {
             );
     }
 
+    /**
+     * set transaction-data of the transaction selected by row-click
+     * @param {*} entry 
+     */
     historyDetailClicked(entry) {
         if (entry.txId && entry.txId !== this.state.txId) {
             this.state.txId = entry.txId;
@@ -63,14 +78,25 @@ class History extends React.Component {
         }
     }
 
+    /**
+     * Back-Button: Click handler
+     */
     backClicked() {
         this.props.history.push("/");
     }
 
+    /**
+     * After Component initial rendering
+     * - get asset history data
+     */
     componentDidMount() {
         this.fetchListData();
     }
 
+    /**
+     * History Renderer
+     * @returns HTML template of the asset history view
+     */
     render() {
         const { error, isLoaded, historyKey, items, txId, txData } = this.state;
         if (!historyKey || historyKey === '') {

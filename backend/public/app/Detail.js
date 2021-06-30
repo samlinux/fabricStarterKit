@@ -1,4 +1,12 @@
+/**
+ * Asset detail component (create or update an asset)
+ */
 class Detail extends React.Component {
+
+    /**
+     * Detail Constructor
+     * @param {*} props 
+     */
     constructor(props) {
         super(props);
         // look for asset-key in route-params
@@ -9,6 +17,7 @@ class Detail extends React.Component {
             }
         }
         // init state
+        // in case of update -> key was provided and is attached to the state
         this.state = {
             error: null,
             isLoaded: false,
@@ -23,8 +32,10 @@ class Detail extends React.Component {
         };
     }
 
+    /**
+     * Fetch asset detail data (if asset-key was given)
+     */
     fetchDetailData() {
-        // Fetch asset-detail data (if asset-key was given)
         fetch(apiUrl + "getData/" + this.state.storeKey)
             .then(res => res.json())
             .then(
@@ -39,6 +50,7 @@ class Detail extends React.Component {
                         }
                     }
                     if (errorMsg) {
+                        // show error message (if provided by the API)
                         this.setState({
                             isLoaded: true,
                             error: {
@@ -46,6 +58,7 @@ class Detail extends React.Component {
                             }
                         });
                     } else {
+                        // attach data (provided by the API) to the state
                         fetchData.key = this.state.storeKey;
                         this.setState({
                             isLoaded: true,
@@ -62,6 +75,10 @@ class Detail extends React.Component {
             );
     }
 
+    /**
+     * POST asset data to the API to create/update an asset through a blackchain-transaction
+     * @returns 
+     */
     storeDetailData() {
         const _this = this;
         // cancel storeDetailData if a transaction is still ongoing
@@ -95,22 +112,40 @@ class Detail extends React.Component {
         });
     }
 
+    /**
+     * Form: Submit handler
+     * @param {*} event 
+     */
     handleSubmit(event) {
         // prevent reload
         event.preventDefault();
         this.storeDetailData();
     }
 
+    /**
+     * Back-Button: Click handler
+     */
     backClicked() {
         this.props.history.push("/");
     }
 
-    formValueChanged(name, e) {
+    /**
+     * Form-fields: Changed handler
+     * @param {*} dataPropertyName
+     * @param {*} event
+     */
+    formValueChanged(dataPropertyName, event) {
         let stateData = this.state;
-        stateData.data[name] = e.target.value;
+        stateData.data[dataPropertyName] = event.target.value;
+        // set new values to the state
         this.setState(stateData);
     }
 
+    /**
+     * After Component initial rendering
+     * - get asset data if key was provided by routing
+     * - set state "isLoaded"
+     */
     componentDidMount() {
         if (this.state.storeKey) {
             // get asset data
@@ -123,6 +158,10 @@ class Detail extends React.Component {
         }
     }
 
+    /**
+     * Detail Renderer
+     * @returns HTML template of the asset detail view
+     */
     render() {
         const { error, isLoaded, storeInProgress, storeKey } = this.state;
         if (error) {

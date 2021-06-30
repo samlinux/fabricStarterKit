@@ -1,6 +1,15 @@
+/**
+ * Asset list component (shows all assets)
+ */
 class List extends React.Component {
+
+    /**
+     * List Constructor
+     * @param {*} props
+     */
     constructor(props) {
         super(props);
+        // init state
         this.state = {
             error: null,
             isLoaded: false,
@@ -9,9 +18,11 @@ class List extends React.Component {
         };
     }
 
+    /**
+     * Fetch asset list data
+     */
     fetchListData() {
         const _this = this;
-        // Fetch asset-list data
         fetch(apiUrl + "getAllAssets")
             .then(res => res.json())
             .then(
@@ -32,6 +43,11 @@ class List extends React.Component {
             );
     }
 
+    /**
+     * View template function to format price-values to always show 2 decimal places
+     * @param {*} price 
+     * @returns
+     */
     priceRenderTemplate(price) {
         let priceStr = '0.00';
         if (price) {
@@ -40,24 +56,40 @@ class List extends React.Component {
         return priceStr;
     }
 
+    /**
+     * Create-Button: Click handler
+     * Go to detail-view (without key-param)
+     */
     createClicked() {
         this.props.history.push("/detail/create");
     }
 
+    /**
+     * Edit-Button: Click handler
+     * Go to detail-view (including key-param of the asset)
+     */
     editClicked(assetKey) {
         this.props.history.push("/detail/" + assetKey);
     }
 
+    /**
+     * History-Button: Click handler
+     * Go to history-view (including key-param of the asset)
+     */
     historyClicked(assetKey) {
         this.props.history.push("/history/" + assetKey);
     }
 
+    /**
+     * send delete-asset API-request to delete the asset with the key
+     * @param {*} assetKey 
+     */
     deleteClicked(assetKey) {
         const _this = this;
         // delete in progress
         this.state.deleteInProgress = true;
         this.setState(this.state);
-        // delete asset
+        // delete API-request
         fetch(apiUrl + "delAsset/" + assetKey)
             .then(res => res.json())
             .then(
@@ -68,10 +100,18 @@ class List extends React.Component {
             );
     }
 
+    /**
+     * After Component initial rendering
+     * - get asset list data
+     */
     componentDidMount() {
         this.fetchListData();
     }
 
+    /**
+     * List Renderer
+     * @returns HTML template of the asset list view
+     */
     render() {
         const { error, isLoaded, deleteInProgress, items } = this.state;
         if (error) {

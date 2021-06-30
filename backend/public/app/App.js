@@ -1,3 +1,6 @@
+/**
+ * App component (main component)
+ */
 class App extends React.Component {
 
   /**
@@ -6,7 +9,7 @@ class App extends React.Component {
    */
   constructor(props) {
     super(props);
-    // set state for the copyright-year in the footer
+    // init state (set state for the copyright-year in the footer)
     this.state = {
       year: new Date().getFullYear()
     };
@@ -39,4 +42,5 @@ class App extends React.Component {
     );
   }
 }
+// Render component in root-container (defined in index.html)
 ReactDOM.render(<App />, document.querySelector('#root'));
