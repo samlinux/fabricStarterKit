@@ -185,7 +185,7 @@ mv .env docker/
 ```
 **One short side note at this point**.
 - If you use the network.sh script like in the above example, then you have to use the term **javascript** as chaincode identifier.
-- Otherwise if you try to install the chaincode per hand, like in the example below, then you have to use the term **node** as a valide chaincode identifier.
+- Otherwise if you try to install the chaincode per hand, like in the example below, then you have to use the term **node** as a valid chaincode identifier.
 
 >peer lifecycle chaincode package basic.tar.gz --path ../asset-transfer-basic/chaincode-javascript --lang node --label basic_1.0
 
