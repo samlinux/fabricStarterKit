@@ -17,7 +17,8 @@
     
     // logging
     router.use((req, res, next) => {
-      console.log(req.url);
+      let ts = new Date();
+      console.log(req.url, ts);
       next()
     })
   
