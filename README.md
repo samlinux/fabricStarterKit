@@ -1,20 +1,20 @@
 # Fabric Developer Starter Kit
 This is a starter kit for Hyperledger Fabric Node.js Developers.
 
-This guide consists of the following parts.
+This guide consists of the following parts:
 
 - [Part 1 - Preparation](#OS-preparation)
 - [Part 2 - Using the development network](network/readme.md)
-- [Part 3 - Set up and run an client application](backend/readme.md)
+- [Part 3 - Set up and run a client application](backend/readme.md)
 - Set up a react frontend application
 
-## Short overview of the starter kit
+## Short Overview of the Starter Kit
 ![devNetwork-overview](img/devNetwork-overview.png "devNetwork-overview")
 
-The slides from the presentation can be found [here](https://docs.google.com/presentation/d/1Maqwoc0X94_GD73R2wzIeUIunM6_n48T9yGbWeIYUjI/edit?usp=sharing).
+The slides from the presentation can be found [here](https://docs.google.com/presentation/d/1Maqwoc0X94_GD73R2wzIeUIunM6_n48T9yGbWeIYUjI/edit?usp=sharing){:target="_blank"} .
 
 ## Part 1 - Preparation
-These steps describes a HLF 2.2.x installation on  e.g. a DigitalOcean Droplet. 
+These steps describe a HLF 2.2.x installation on e.g. a DigitalOcean Droplet. 
 
 >Note: To interact from your windows machine with the droplet use putty.
 
@@ -25,7 +25,7 @@ OS, Ubuntu 20.04 (LTS) x64
 ## Access via ssh
 ssh root@ip-of-the-host
 
-## Base Installation
+## Basic Installation
 The following steps are required to do a basic installation of the Droplet.
 ```bash
 # update the OS
@@ -46,7 +46,7 @@ init 6
 ```
 
 ## Install Docker
-The following steps are required to install docker on the Droplet. Reference: https://docs.docker.com/engine/install/ubuntu/
+The following steps are required to install Docker on the Droplet. Reference: https://docs.docker.com/engine/install/ubuntu/
 
 ```bash
 # set up the repository
@@ -128,7 +128,7 @@ pwd
 # create base folder
 mkdir fabric
 
-# make sure you are in the fabric base folder
+# make sure you are in the Fabric base folder
 cd fabric
 
 # clone the starter kit
@@ -162,10 +162,10 @@ peer version
 
 ```
 
-## Try the installation
-The fabric-samples provisions a sample Hyperledger Fabric test-network consisting of two organizations, each maintaining one peer nodes. It also will deploy a single RAFT ordering service by default. 
+## Try the Installation
+The fabric-samples provisions a sample Hyperledger Fabric test-network consisting of two organizations, each maintaining one peer node. It will deploy also a single RAFT ordering service by default. 
 
-To test your installationen we can start interacting with the network. Let`s do a short test run.
+To test your installation we can start interacting with the network. Let`s do a short test run.
 
 ```bash
 # switch to the base folder
@@ -182,7 +182,14 @@ mv .env docker/
 
 # install default CC - asset-transfer (basic) chaincode
 ./network.sh deployCC -ccn basic -ccp ../asset-transfer-basic/chaincode-javascript -ccl javascript
+```
+**One short side note at this point**.
+- If you use the network.sh script like in the above example, then you have to use the term **javascript** as chaincode identifier.
+- Otherwise if you try to install the chaincode per hand, like in the example below, then you have to use the term **node** as a valid chaincode identifier.
 
+>peer lifecycle chaincode package basic.tar.gz --path ../asset-transfer-basic/chaincode-javascript --lang node --label basic_1.0
+
+```bash
 # show if some containers are running
 docker ps
 docker-compose -f docker/docker-compose-test-net.yaml ps
@@ -196,13 +203,10 @@ Before you start, get familiar with some tmux commands you are going to use.
 tmux new -s fabric
 
 >**attach to existing session**<br>
-tmux add -t fabric
-
->**open a new panel**<br>
-CTRL + b (release pressed keys) + "
+tmux att -t fabric
 
 >**Create a new panel horizontally**<br> 
-CTRL + b " (double-quots)
+CTRL + b "
 
 >**Switch/select panel by number**<br> 
 CTRL + b q  0 ... 9
@@ -213,9 +217,6 @@ CTRL + b d
 >**Show all sessions**<br> 
 tmux ls
 
->**Attach to session dev**<br> 
-tmux att -t fabric
-
 >**Delete/kill session dev**<br> 
 tmux kill-ses -t mysession
 
@@ -223,7 +224,7 @@ tmux kill-ses -t mysession
 CTRL + b :set -g mouse on
 
 
-### Test the set up
+### Test the Set-Up
 
 ```bash
 # execute the env file, so we can switch between organizations
@@ -252,12 +253,12 @@ peer chaincode query -C mychannel -n basic -c '{"Args":["GetAllAssets"]}' | jq .
 ```
 When you see the results, you can move on.
 
-## Bring down the network
+## Bring down the Network
 ```bash
 ./network.sh down
 ```
 
-Next try to start the starter kit and test with the CLI commands.
+Next try is to start the starter kit and test with the CLI commands.
 
 [Next](network/readme.md)
 

@@ -11,13 +11,15 @@
   const setData = require('./set');
   const getAllAssets = require('./getAllAssets');
   const deleteAsset = require('./deleteAsset');
+  const getHistory = require('./getHistory');
 
 	module.exports = function(connection){
     let express = require('express'), router = express.Router();
     
     // logging
     router.use((req, res, next) => {
-      console.log(req.url);
+      let ts = new Date();
+      console.log(req.url, ts);
       next()
     })
   
@@ -61,10 +63,18 @@
      * @apiParam {string} key 
      */
      router.get('/delAsset/:key', async function (req, res) {
-       console.log('as')
       let result = await deleteAsset(req, connection.contract)
       res.json(result);
     })
+
+    /**
+     * GetHistory for an asset
+     * @apiParam {string} key 
+     */
+     router.get('/getHistory/:key', async function (req, res) {
+     let result = await getHistory(req, connection.contract)
+     res.json(result);
+   })
 
 		return router;
 	};
