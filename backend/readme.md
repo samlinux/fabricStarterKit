@@ -1,4 +1,4 @@
-# Part 3 - Set-Up and run a Client Application
+# Part 3 - Set Up and run a Client Application
 The client application is based on Node.js. We use an expressjs REST API to interact with the ledger and provide a public react frontend.
 
 ## Install Node.js requirements
@@ -62,4 +62,5 @@ CTRL + b " (double-quots)
 mocha -g "getAllAssets" cli/commands.js
 ```
 
-[Index](../README.md#fabric-Developer-starter-kit) | [Back](../network/readme.md)
+[Index](../README.md#fabric-Developer-starter-kit) | [Back](../network/readme.md) | [Next](./readmeFrontend.md)
+

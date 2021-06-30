@@ -6,7 +6,7 @@ This guide consists of the following parts:
 - [Part 1 - Preparation](#OS-preparation)
 - [Part 2 - Using the development network](network/readme.md)
 - [Part 3 - Set up and run a client application](backend/readme.md)
-- Set up a react frontend application
+- [Part 4 - Set up a react frontend application](backend/readmeFrontend.md)
 
 ## Short Overview of the Starter Kit
 ![devNetwork-overview](img/devNetwork-overview.png "devNetwork-overview")
