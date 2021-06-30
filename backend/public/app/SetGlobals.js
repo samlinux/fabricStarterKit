@@ -1,3 +1,8 @@
+/**
+ * Set some global variables
+ * -> can be used throughout the whole application
+ */
+
 // Set RouterDOM-Link
 const Link = ReactRouterDOM.Link;
 
