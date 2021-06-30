@@ -1,19 +1,19 @@
-# Part 3 - Set up and run an client application
+# Part 3 - Set-Up and run a Client Application
 The client application is based on Node.js. We use an expressjs REST API to interact with the ledger and provide a public react frontend.
 
 ## Install Node.js requirements
 First install the required node_modules.
 ```bash
-# make sure you are into the backend folder
+# make sure you are in the backend folder
 pwd
-# > /root/fabric/fabricStarterKit/backen
+# > /root/fabric/fabricStarterKit/backend
 
 # have a look into the package.json file if you are interested
 npm install
 ```
 
-## Add an user to the wallet
-The client application needs a user to interact with the ledger. We can use **User1@org1.example.com**, which was created during the boot process. 
+## Add an User to the Wallet
+The client application needs a user to interact with the ledger. We can use **User1@org1.example.com** which was created during the boot process. 
 
 The second step is to add this user to the clients local filesystem wallet. We can do that with the following command.
 
