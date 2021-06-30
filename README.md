@@ -182,7 +182,14 @@ mv .env docker/
 
 # install default CC - asset-transfer (basic) chaincode
 ./network.sh deployCC -ccn basic -ccp ../asset-transfer-basic/chaincode-javascript -ccl javascript
+```
+**One short side note at this point**.
+- If you use the network.sh script like in the above example, then you have to use the term **javascript** as chaincode identifier.
+- Otherwise if you try to install the chaincode per hand, like in the example below, then you have to use the term **node** as a valide chaincode identifier.
 
+>peer lifecycle chaincode package basic.tar.gz --path ../asset-transfer-basic/chaincode-javascript --lang node --label basic_1.0
+
+```bash
 # show if some containers are running
 docker ps
 docker-compose -f docker/docker-compose-test-net.yaml ps
