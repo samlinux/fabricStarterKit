@@ -11,7 +11,7 @@ This guide consists of the following parts:
 ## Short Overview of the Starter Kit
 ![devNetwork-overview](img/devNetwork-overview.png "devNetwork-overview")
 
-The slides from the presentation can be found [here](https://docs.google.com/presentation/d/1Maqwoc0X94_GD73R2wzIeUIunM6_n48T9yGbWeIYUjI/edit?usp=sharing){:target="_blank"} .
+The slides from the presentation can be found [here](https://docs.google.com/presentation/d/1Maqwoc0X94_GD73R2wzIeUIunM6_n48T9yGbWeIYUjI/edit?usp=sharing).
 
 ## Part 1 - Preparation
 These steps describe a HLF 2.2.x installation on e.g. a DigitalOcean Droplet. 
