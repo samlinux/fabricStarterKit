@@ -32,6 +32,14 @@ class List extends React.Component {
             );
     }
 
+    priceRenderTemplate(price) {
+        let priceStr = '0.00';
+        if (price) {
+            priceStr = (Math.round(price * 100) / 100).toFixed(2);
+        }
+        return priceStr;
+    }
+
     createClicked() {
         this.props.history.push("/detail/create");
     }
@@ -79,8 +87,8 @@ class List extends React.Component {
                             <tr>
                                 <th scope="col">Key</th>
                                 <th scope="col">Description</th>
-                                <th scope="col">Amount</th>
-                                <th scope="col">Price</th>
+                                <th scope="col" class="col-numeric-value">Amount</th>
+                                <th scope="col" class="col-numeric-value">Price</th>
                                 <th scope="col" class="list-table-edit-col">
                                     <button type="button" class="btn btn-success list-button" onClick={this.createClicked.bind(this)}>Create asset</button>
                                 </th>
@@ -91,8 +99,8 @@ class List extends React.Component {
                                 <tr key={item.Key}>
                                     <th scope="row">{item.Key}</th>
                                     <td>{item.Record.desc}</td>
-                                    <td>{item.Record.amount}</td>
-                                    <td>{item.Record.price}</td>
+                                    <td class="col-numeric-value">{item.Record.amount}</td>
+                                    <td class="col-numeric-value">{this.priceRenderTemplate(item.Record.price)}</td>
                                     <td>
                                         <button type="button" class="btn btn-primary list-button" onClick={this.editClicked.bind(this, item.Key)}>Edit</button>
                                         <button type="button" class="btn btn-secondary list-button" onClick={this.historyClicked.bind(this, item.Key)}>History</button>
