@@ -132,7 +132,6 @@ class Starter extends Contract {
      */
     async getHistory(ctx, key){
       // get the asset from chaincode state
-      console.log(key)
       const promiseOfIterator = await ctx.stub.getHistoryForKey(key);
       const results = await this.getAllResults(promiseOfIterator);
       return JSON.stringify(results);
