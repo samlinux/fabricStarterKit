@@ -68,7 +68,7 @@ peer chaincode query -o 127.0.0.1:7050 -C ch1 -n mycc -c '{"Args":["starter:getA
 peer chaincode invoke -o 127.0.0.1:7050 -C ch1 -n mycc -c '{"Args":["starter:delete","a1"]}'
 ```
 
-## Stopping the development network
+## Stopping the Development Network
 You can stop the development network.
 ```bash
 # in terminal 1
