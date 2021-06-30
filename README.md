@@ -198,11 +198,8 @@ tmux new -s fabric
 >**attach to existing session**<br>
 tmux att -t fabric
 
->**open a new panel**<br>
-CTRL + b "
-
 >**Create a new panel horizontally**<br> 
-CTRL + b " (double-quots)
+CTRL + b "
 
 >**Switch/select panel by number**<br> 
 CTRL + b q  0 ... 9
