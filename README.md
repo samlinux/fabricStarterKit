@@ -165,7 +165,7 @@ peer version
 ## Try the installation
 The fabric-samples provisions a sample Hyperledger Fabric test-network consisting of two organizations, each maintaining one peer nodes. It also will deploy a single RAFT ordering service by default. 
 
-To test your installationen we can start interacting with the network. Let`s do a short test run.
+To test your installation we can start interacting with the network. Let`s do a short test run.
 
 ```bash
 # switch to the base folder
@@ -196,10 +196,10 @@ Before you start, get familiar with some tmux commands you are going to use.
 tmux new -s fabric
 
 >**attach to existing session**<br>
-tmux add -t fabric
+tmux att -t fabric
 
 >**open a new panel**<br>
-CTRL + b (release pressed keys) + "
+CTRL + b "
 
 >**Create a new panel horizontally**<br> 
 CTRL + b " (double-quots)
@@ -212,9 +212,6 @@ CTRL + b d
 
 >**Show all sessions**<br> 
 tmux ls
-
->**Attach to session dev**<br> 
-tmux att -t fabric
 
 >**Delete/kill session dev**<br> 
 tmux kill-ses -t mysession

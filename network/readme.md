@@ -53,19 +53,19 @@ source ./network/startup.sh
 
 ## test the chaincode with  CLI commands during the chaincode development
 # create or update an asset
-CORE_PEER_ADDRESS=127.0.0.1:7051 peer chaincode invoke -o 127.0.0.1:7050 -C ch1 -n mycc -c '{"Args":["starter:set","{\"no\":\"a1\", \"desc\":\"Product number 1\",\"amount\":10, \"price\":\"500\"}"]}'
+peer chaincode invoke -o 127.0.0.1:7050 -C ch1 -n mycc -c '{"Args":["starter:set","{\"no\":\"a1\", \"desc\":\"Product number 1\",\"amount\":10, \"price\":\"500\"}"]}'
 
 # query the world state of an asset
-CORE_PEER_ADDRESS=127.0.0.1:7051 peer chaincode query -o 127.0.0.1:7050 -C ch1 -n mycc -c '{"Args":["starter:get","a1"]}' | jq .
+peer chaincode query -o 127.0.0.1:7050 -C ch1 -n mycc -c '{"Args":["starter:get","a1"]}' | jq .
 
 # query the history of an asset
-CORE_PEER_ADDRESS=127.0.0.1:7051 peer chaincode query -o 127.0.0.1:7050 -C ch1 -n mycc -c '{"Args":["starter:getHistory","a1"]}' | jq .
+peer chaincode query -o 127.0.0.1:7050 -C ch1 -n mycc -c '{"Args":["starter:getHistory","a1"]}' | jq .
 
 # query all assets
-CORE_PEER_ADDRESS=127.0.0.1:7051 peer chaincode query -o 127.0.0.1:7050 -C ch1 -n mycc -c '{"Args":["starter:getAllAssets"]}' | jq .
+peer chaincode query -o 127.0.0.1:7050 -C ch1 -n mycc -c '{"Args":["starter:getAllAssets"]}' | jq .
 
 # delete an asset
-CORE_PEER_ADDRESS=127.0.0.1:7051 peer chaincode invoke -o 127.0.0.1:7050 -C ch1 -n mycc -c '{"Args":["starter:delete","a1"]}'
+peer chaincode invoke -o 127.0.0.1:7050 -C ch1 -n mycc -c '{"Args":["starter:delete","a1"]}'
 ```
 
 ## Stopping the development network
