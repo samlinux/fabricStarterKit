@@ -180,7 +180,7 @@ class Starter extends Contract {
         } else if (!res.value) {
           throw new Error('no value and not done (internal error?)');
         }
-       
+        
         if(!res.value.isDelete){
           const theVal = res.value.value.toString('utf8');  
           const jsonVal = JSON.parse(theVal);
