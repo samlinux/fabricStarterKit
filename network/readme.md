@@ -71,7 +71,7 @@ peer chaincode invoke -o 127.0.0.1:7050 -C ch1 -n mycc -c '{"Args":["starter:del
 >Note: If you move on to part 3, please don't stop the network.
 
 ## Stopping the Development Network
-Please notice if you stop the network, the network will remove all blockchain related data and crypto-material. You will receive a clean system for the next start.
+Please note if you stop the network, the network will remove all blockchain related data and crypto-material. You will receive a clean system for the next start.
 
 ```bash
 # in terminal 1
