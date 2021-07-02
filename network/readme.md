@@ -68,7 +68,7 @@ peer chaincode query -o 127.0.0.1:7050 -C ch1 -n mycc -c '{"Args":["starter:getA
 peer chaincode invoke -o 127.0.0.1:7050 -C ch1 -n mycc -c '{"Args":["starter:delete","a1"]}'
 ```
 
->Note: If you move on to part 3, please don't stop the network.
+>Note: When you're completing part 3 of this guide, please do not stop the network.
 
 ## Stopping the Development Network
 Please note if you stop the network, the network will remove all blockchain related data and crypto-material. You will receive a clean system for the next start.
