@@ -37,7 +37,7 @@ class Starter extends Contract {
     }
 
     /**
-     * 
+     * create or update an asset
      * @param {*} ctx 
      * @returns 
      */
@@ -45,7 +45,7 @@ class Starter extends Contract {
       
       // create the model and get the key
       this.createModel(ctx);
-      //console.log(this.Model);
+      console.log(this.Model);
 
       try {
         // store the key
