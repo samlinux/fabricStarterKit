@@ -45,6 +45,7 @@ class Starter extends Contract {
       
       // create the model and get the key
       this.createModel(ctx);
+      //console.log(this.Model);
 
       try {
         // store the key

@@ -56,13 +56,13 @@ source ./network/startup.sh
 peer chaincode invoke -o 127.0.0.1:7050 -C ch1 -n mycc -c '{"Args":["starter:set","{\"no\":\"a1\", \"desc\":\"Product number 1\",\"amount\":10, \"price\":\"500\"}"]}'
 
 # query the world state of an asset
-peer chaincode query -o 127.0.0.1:7050 -C ch1 -n mycc -c '{"Args":["starter:get","a1"]}' | jq .
+peer chaincode query -C ch1 -n mycc -c '{"Args":["starter:get","a1"]}' | jq .
 
 # query the history of an asset
-peer chaincode query -o 127.0.0.1:7050 -C ch1 -n mycc -c '{"Args":["starter:getHistory","a1"]}' | jq .
+peer chaincode query -C ch1 -n mycc -c '{"Args":["starter:getHistory","a1"]}' | jq .
 
 # query all assets
-peer chaincode query -o 127.0.0.1:7050 -C ch1 -n mycc -c '{"Args":["starter:getAllAssets"]}' | jq .
+peer chaincode query -C ch1 -n mycc -c '{"Args":["starter:getAllAssets"]}' | jq .
 
 # delete an asset
 peer chaincode invoke -o 127.0.0.1:7050 -C ch1 -n mycc -c '{"Args":["starter:delete","a1"]}'
